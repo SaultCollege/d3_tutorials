@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>D3 Test</title>
+        <script type="text/javascript" src="../../js/d3/d3.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Roboto:light" rel="stylesheet">
+
+        <link rel="stylesheet" href="../../css/styles.css">
+    </head>
+    <body>
+        <a href='/d3_tutorials'>Home...</a>
+        <br/><a href='/d3_tutorials/tutorials/06_drawing_divs/index.html'>Back...</a>
+        <h1><a href="http://alignedleft.com/tutorials/d3/drawing-divs">Drawing divs...</a></h1>
+        <div class='tab'>
+            <br/>Draw divs, modify attributes and change styles.
+            <br/>
+            <br/>Draw divs Results
+            <pre>
+
+            <script>
+                var dataset = [ 5, 10, 15, 20, 25 ];
+                d3.select("body").selectAll(".bar")
+                        .data(dataset)
+                        .enter()
+                        .append("div")
+                        .attr("class", "bar")
+                        .style("height", function (d) {
+                            return d + "px";
+                        });
+            </script>
+        </div>
+        <br/>Try more styles
+        <pre><code>.style("height", function(d) {
+    var barHeight = d * 5;  //Scale up by factor of 5
+    return barHeight + "px";
+}).style("margin-right","2px");
+</code></pre>
+<a href='p2.html'>See result 2</a>
+
+
+    </body>
+</html>     

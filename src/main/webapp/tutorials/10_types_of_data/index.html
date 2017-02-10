@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>D3 Test</title>
+        <script type="text/javascript" src="../../js/d3/d3.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Roboto:light" rel="stylesheet">
+
+        <link rel="stylesheet" href="../../css/styles.css">
+    </head>
+    <body>
+        <a href='/d3_tutorials'>Home...</a>
+        <br/><a href='/d3_tutorials/tutorials/index.html'>Back...</a>
+        <h1><a href="http://alignedleft.com/tutorials/d3/data-types">Types of data...</a></h1>
+        
+        <br/><h1 class="tab">Simple</h1>
+<pre class="tab-tab"><code>
+//Declaring variables in JavaScript
+var number = 5;
+var value = 12.3467;
+var active = true;
+var text = "Crystal clear";
+// How boring — var, var, var, var! — yet handy, as we can declare and name variables before we even know what type of data will go into them. You can even change a variable’s type on-the-fly without JavaScript freaking out on you.
+var value = 100;
+value = 99.9999;
+value = false;
+value = "This can't possibly work.";
+value = "Argh, it does work! No errorzzzz!";            
+</code></pre>
+        <br/><h1 class="tab">Object</h1>
+<pre class="tab-tab"><code>
+var fruit = {
+kind: "grape",
+color: "red",
+quantity: 12,
+tasty: true
+};
+</code></pre>
+        <br/><h1 class="tab">Array of Objects</h1>
+<pre class="tab-tab"><code>
+var fruits = [
+    {
+        kind: "grape",
+        color: "red",
+        quantity: 12,
+        tasty: true
+    },
+    {
+        kind: "kiwi",
+        color: "brown",
+        quantity: 98,
+        tasty: true
+    },
+    {
+        kind: "banana",
+        color: "yellow",
+        quantity: 0,
+        tasty: true
+    }
+];
+To access this data, we just follow the trail of indices down to the values we want. Remember, [] means array, and {} means object. fruits is an array, so first we use bracket notation to specify an array index:
+
+fruits[1]
+Next, each array element is an object, so just tack on a dot and an index:
+
+fruits[1].quantity  //Returns 98
+Here’s a map of how to access every value in the fruits array of objects:
+
+fruits[0].kind      ==  "grape"
+fruits[0].color     ==  "red"
+fruits[0].quantity  ==  12
+fruits[0].tasty     ==  true
+
+fruits[1].kind      ==  "kiwi"
+fruits[1].color     ==  "brown"
+fruits[1].quantity  ==  98
+fruits[1].tasty     ==  true
+
+fruits[2].kind      ==  "banana"
+fruits[2].color     ==  "yellow"
+fruits[2].quantity  ==  0
+fruits[2].tasty     ==  true
+</code></pre>
+        <br/><h1 class="tab">JSON</h1>
+        <div class="tab-tab">
+            <br/>JavaScript Object Notation. JSON is a specific syntax for organizing data as JavaScript objects. 
+            <br/>The syntax is optimized for use with JavaScript (obviously) and AJAX requests. 
+            <br/>A lot of web-based APIs that spit out data as JSON. 
+            <br/>It’s faster and easier to parse with JavaScript than XML, and of course D3 works well with it.
+        </div>
+
+<pre class="tab-tab"><code>
+var jsonFruit = {
+    "kind": "grape",
+    "color": "red",
+    "quantity": 12,
+    "tasty": true
+};
+</code></pre>
+        
+        
+        <br/><h1 class="tab">GeoJSON</h1>
+        <div class="tab-tab">
+            <br/>GeoJSON is a formalized syntax of JSON objects, optimized for storing geodata. 
+            <br/>All GeoJSON object are JSON objects, and all JSON objects are JavaScript objects.
+            <br/>GeoJSON can store points in geographical space (typically as longitude/latitude coordinates), 
+            <br/>but also shapes (like lines and polygons) and other spatial features. 
+            <br/>If you have a lot of geodata, it’s worth it to parse it into GeoJSON format for best use with D3.
+        </div>
+
+<pre class="tab-tab"><code>
+var geodata = {
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [ 150.1282427, -24.471803 ]
+            },
+            "properties": {
+                "type": "town"
+            }
+        }
+    ]
+};
+(Confusingly, longitude is always listed before latitude. Get used to thinking in terms of lon/lat instead of lat/lon.)
+</code></pre>
+        
+</body>
+</html>     

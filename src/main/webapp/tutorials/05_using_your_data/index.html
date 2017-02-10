@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>D3 Test</title>
+        <script type="text/javascript" src="../../js/d3/d3.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Roboto:light" rel="stylesheet">
+
+        <link rel="stylesheet" href="../../css/styles.css">
+    </head>
+    <body>
+        <a href='/d3_tutorials'>Home...</a>
+        <br/><a href='/d3_tutorials/tutorials/index.html'>Back...</a>
+        <h1><a href="http://alignedleft.com/tutorials/d3/using-your-data">Using your data...</a></h1>
+        <h2 class='tab'>Original Code</h2>
+        <pre>
+            <code>
+                var dataset = [ 5, 10, 15, 20, 25 ];
+
+                d3.select("body").selectAll("p")
+                    .data(dataset)
+                    .enter()
+                    .append("p")
+                    .text("New paragraph!");            
+            </code>
+        </pre>
+        <h2 class='tab'>Let’s change the last line to <pre>.text(function(d) { return d; });</pre></h2>
+        <pre>
+            <code>
+                var dataset = [ 5, 10, 15, 20, 25 ];
+
+                d3.select("body").selectAll("p")
+                    .data(dataset)
+                    .enter()
+                    .append("p")
+                    .text(function(d) { return d; });          
+ 
+            </code>
+        </pre> 
+        <div class="tab">
+            <br/>The .text() functions accepts a string or another function.
+            <br/>If it's a function then the data is passed to the function as "d".
+            <br/>As d3.data() loops through each data element, it passes the element to the text function which in turn passes it to
+            <br/>the anonymous function as "d".
+        </div>
+        <script>
+            var dataset = [ 5, 10, 15, 20, 25 ];
+
+                d3.select("body").selectAll("p")
+                    .data(dataset)
+                    .enter()
+                    .append("p")
+                    .text(function(d) { return d; });
+        </script>
+    </body>
+</html>     

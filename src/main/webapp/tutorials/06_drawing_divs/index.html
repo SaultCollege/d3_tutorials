@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>D3 Test</title>
+        <script type="text/javascript" src="../../js/d3/d3.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Roboto:light" rel="stylesheet">
+
+        <link rel="stylesheet" href="../../css/styles.css">
+    </head>
+    <body>
+        <a href='/d3_tutorials'>Home...</a>
+        <br/><a href='/d3_tutorials/tutorials/index.html'>Back...</a>
+        <h1><a href="http://alignedleft.com/tutorials/d3/drawing-divs">Drawing divs...</a></h1>
+        <div class='tab'>
+            <br/>Draw divs, modify attributes and change styles.
+            <br/>
+            <br/>Draw a div with
+            <pre>
+<code>&lt;div style="display: inline-block;
+    width: 20px;
+    height: 75px;
+    background-color: teal;"&gt;
+&lt;/div&gt;
+</code>
+            </pre>
+            <br/>
+            <div style="display: inline-block;
+                 width: 20px;
+                 height: 75px;
+                 background-color: teal;">
+            </div>
+            <br/>
+            <br/>Create a style
+            <pre><code>div.bar {
+    display: inline-block;
+    width: 20px;
+    height: 75px;   /* We'll override this later */
+    background-color: teal;
+}
+            </code>
+            </pre>
+            <br/>Apply the style
+            <pre><code>&lt;div class="bar"&gt;&lt;/div&gt;</code></pre>
+            <br/>
+            <br/>Use D3's selection.attr() to add a class to an element
+            <br/>To give divs a class of bar, we can use:
+
+            <pre><code>.attr("class", "bar")</code></pre>
+
+            <br/>Create divs and set class to "bar"
+            <pre><code>var dataset = [ 5, 10, 15, 20, 25 ];
+
+d3.select("body").selectAll("div")
+    .data(dataset)
+    .enter()
+    .append("div")
+    .attr("class", "bar");</code></pre>
+
+            <br/>Set the bars height by changing the style height
+            <br/>You can change style with d3.style("height", function(d))
+            <br/>The code
+
+            <pre><code>var dataset = [ 5, 10, 15, 20, 25 ];
+
+d3.select("body").selectAll("div")
+    .data(dataset)
+    .enter()
+    .append("div")
+    .attr("class", "bar")
+    .style("height", function(d) {
+    return d + "px";
+});</code></pre>
+        </div>
+        <a href='p1.html'>See result 1</a>
+        
+        
+        
+    </body>
+</html>     

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>D3 Test</title>
+        <script type="text/javascript" src="../../js/d3/d3.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Roboto:light" rel="stylesheet">
+
+        <link rel="stylesheet" href="../../css/styles.css">
+    </head>
+    <body>
+        <a href='/d3_tutorials'>Home...</a>
+        <br/><a href='/d3_tutorials/tutorials/index.html'>Back...</a>
+        <h1><a href="http://alignedleft.com/tutorials/d3/adding-elements">Adding Elements...</a></h1>
+        <p class="tab">Select the body tag and append a p tag</p>
+        <pre>
+            <code>
+                d3.select("body").append("p").text("New paragraph!"); 
+            </code>
+        </pre>
+
+        <p class="tab">Let’s walk through what just happened. In sequence, we:</p>
+
+        <ul class="tab">
+            <li>Invoked D3's select method, which selects a single element from the DOM using CSS selector syntax. (We selected the body.)</li>
+            <li>Created a new p element and appended that to the end of our selection, meaning just before the closing &lt;/body&gt; tag in this case.</li>
+            <li>Set the text content of that new, empty paragraph to “New paragraph!”</li>
+        </ul>
+        <p class="tab">All of those crazy dots are just part of D3’s chain syntax.</p>
+
+    <script type="text/javascript">
+        // Your beautiful D3 code will go here
+        d3.select("body").append("p").text("New paragraph!");
+    </script>
+
+</body>
+</html>     

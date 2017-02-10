@@ -1,0 +1,53 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 7-Feb-2017, 10:58:00 AM
+    Author     : fred
+*/
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.25em;
+}
+.tab{
+    margin-left: 50px;
+}
+.right{
+    text-align: right;
+}
+.tab-tab{
+    margin-left: 100px;
+}
+/* unvisited link */
+a:link {
+    color: blue;
+    text-decoration: none;
+}
+
+/* visited link */
+a:visited {
+    color: blue;
+    text-decoration: none;
+}
+
+/* mouse over link */
+a:hover {
+    color: lightsteelblue;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* selected link */
+a:active {
+    color: blue;
+    text-decoration: none;
+}
+
+div.bar {
+    display: inline-block;
+    width: 20px;
+    height: 75px;   /* We'll override this later */
+    background-color: teal;
+}

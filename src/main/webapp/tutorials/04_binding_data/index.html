@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>D3 Test</title>
+        <script type="text/javascript" src="../../js/d3/d3.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Roboto:light" rel="stylesheet">
+
+        <link rel="stylesheet" href="../../css/styles.css">
+    </head>
+    <body>
+        <a href='/d3_tutorials'>Home...</a>
+        <br/><a href='/d3_tutorials/tutorials/index.html'>Back...</a>
+        <h1><a href="http://alignedleft.com/tutorials/d3/binding-data">Binding Data...</a></h1>
+
+        <div class='tab'>
+            <br>We use D3’s selection.data() method to bind data to DOM elements. 
+            <br>We need two things before we can bind data:
+            <br>1. The data
+            <br>2. A selection of DOM elements
+            <br>Data
+            <br>Here is our sample data set, an array of int's:
+            <pre><code>var dataset = [ 5, 10, 15, 20, 25 ];</code></pre>
+            <br>The Selection
+            <br>First, select what elements the data be associated with. To keep it simple lets say that we want to make a new paragraph for each value in the data set.
+            <pre><code>d3.select("body").selectAll("p")</code></pre>
+            <br>The paragraphs we want to select don’t exist yet. And this gets at one of the most common points of confusion with D3: How can we select elements that don’t yet exist?
+            <br>The enter() method creates elements if they dont exist.
+            <br>Here's the code
+            <pre><code>
+                d3.select("body").selectAll("p")
+                    .data(dataset)
+                    .enter()
+                    .append("p")
+                    .text("New paragraph!");
+            </code></pre>
+            <div style='color:red'>
+                <pre>d3.select("body") — Finds the body in the DOM and hands a reference off to the next step in the chain.</pre>
+                <pre>.selectAll("p") — Selects all paragraphs in the DOM. Since none exist yet, this returns an empty selection. Think of this empty selection as representing the paragraphs that will soon exist.</pre>
+                <pre>.data(dataset) — Counts and parses our data values. There are five values in our data set, so everything past this point is executed five times, once for each value.</pre>
+                <pre>.enter() — To create new, data-bound elements, you must use enter(). This method looks at the DOM, and then at the data being handed to it. If there are more data values than corresponding DOM elements, then enter() creates a new placeholder element on which you may work your magic. It then hands off a reference to this new placeholder to the next step in the chain.</pre>
+                <pre>.append("p") — Takes the placeholder selection created by enter() and inserts a p element into the DOM. Hooray! Then it hands off a reference to the element it just created to the next step in the chain.</pre>
+                <pre>.text("New paragraph!") — Takes the reference to the newly created p and inserts a text value.</pre>
+            </div>
+            <br/>
+            <script>
+                var dataset = [5, 10, 15, 20, 25];
+                d3.select("body").selectAll("p")
+                        .data(dataset)
+                        .enter()
+                        .append("p")
+                        .text("New paragraph!");
+            </script>
+            <br/>When you inspect the rendered page, you will see that the data is stored in the paragraphs __data__ attribute
+            <br/>See the tutorial for more details
+            <br/><img src='/d3_tutorials/images/i1.png'/>
+            <br/>Result
+        </div>
+    </body>
+</html>     

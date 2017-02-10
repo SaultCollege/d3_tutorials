@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Fundamentals</title>
+        <style type="text/css">
+            p {
+                font-family: sans-serif;
+                color: blue;
+            }
+        </style>
+        <link rel="stylesheet" href="../../css/styles.css">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:light" rel="stylesheet">
+
+    </head>
+    <body>
+        <a href='/d3_tutorials'>Home...</a>
+        <br/><a href='/d3_tutorials/tutorials/index.html'>Back...</a>
+        <h1><a href="http://alignedleft.com/tutorials/d3/fundamentals">Fundamentals...</a></h1>
+        <p class="tab">CSS styles consist of selectors and rules. Selectors identify specific elements to which styles will be applied:</p>
+        <pre>
+            <code class="html">
+                h1          /* Selects level 1 headings              */
+                p           /* Selects paragraphs                    */
+                .caption    /* Selects elements with class "caption" */
+                #subnav     /* Selects element with ID "subnav"      */
+            </code>
+        </pre>
+
+        <p class="tab">Rules are properties that, cumulatively, form the styles:</p>
+        <pre>
+            <code class="html">
+                color: pink;
+                background-color: yellow;
+                margin: 10px;
+                padding: 25px;
+            </code>
+        </pre>
+
+        <p class="tab">D3 uses CSS-style selectors to identify elements on which to operate, so it’s important to understand how to use them.</p>
+        <h1 class="tab">SVG</h1>
+        <p class="tab">D3 is at its best when rendering visuals as Scalable Vector Graphics. SVG is a text-based image format. Meaning, you can specify what an SVG image should look like by writing simple markup code, sort of like HTML tags. In fact, SVG code can be included directly within any HTML document. Web browsers have supported the SVG format for years (except for Internet Explorer), but it never quite caught on, until now.
+            <br/>
+            Here’s a little circle that I just coded into this page:
+            <br/>
+            <svg width="50" height="50">
+            <circle cx="25" cy="25" r="22" fill="blue" stroke="gray" stroke-width="2"/>
+            </svg>
+            <br/>
+        <pre>
+            <code>
+                &lt;svg width="50" height="50"&gt; &lt;circle cx="25" cy="25" r="22" fill="blue" stroke="gray" stroke-width="2"/&gt; &lt;/svg&gt;
+            </code>
+        </pre>
+
+
+        <p class="tab">Go ahead — right-click on it: it’s not an image! Zoom your browser and you’ll see it scales up and down smoothly, as a vector graphic should.
+            You’re not required to use SVG with D3, but you’ll soon find that SVG provides a range of visual opportunities that aren’t possible with regular HTML elements.
+        </p>
+
+
+
+</body>
+</html>
