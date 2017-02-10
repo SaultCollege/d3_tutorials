@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>D3 Test</title>
+        <script type="text/javascript" src="../../js/d3/d3.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Roboto:light" rel="stylesheet">
+        <link rel="stylesheet" href="../../../css/styles.css">
+    </head>
+    <body>
+        <a href='/d3_tutorials'>Home...</a>
+        <br/><a href='/d3_tutorials/maps/bostock/index.html'>Back...</a>
+        <div class='tab'>
+            <h2 style="font-style: italic;color:red;">NOTE** Do these in Linux, tools are better</h2>
+            <h1><a href="https://medium.com/@mbostock/command-line-cartography-part-1-897aa8f8ca2c#.cxfjqn69f">Command-Line Cartography, Part 1...</a></h1>
+            <div class='tab'>
+                Choose a few parameters:<br/>
+                <div class='tab'>A metric (e.g., population density)                    
+                    <ul>
+                        <li>A metric (e.g., population density) </li>
+                        <li>A geographic entity (e.g., census tract)</li>
+                        <li>source (e.g., ACS 2014 5-year estimate)</li>
+                    </ul>
+                    
+                 Given a state’s FIPS code (06 for California), you can now use curl to download the corresponding census tract polygons:
+
+                 <pre class="tab"><code>
+$ curl 'http://www2.census.gov/geo/tiger/GENZ2014/shp/cb_2014_06_tract_500k.zip' -o cb_2014_06_tract_500k.zip                     
+</code></pre>
+                 
+                 <pre class="tab"><code>
+$ unzip -o cb_2014_06_tract_500k.zip
+
+Archive:  cb_2014_06_tract_500k.zip
+  inflating: cb_2014_06_tract_500k.shp.ea.iso.xml  
+  inflating: cb_2014_06_tract_500k.shp.iso.xml  
+  inflating: cb_2014_06_tract_500k.shp.xml  
+  inflating: cb_2014_06_tract_500k.shp  
+  inflating: cb_2014_06_tract_500k.shx  
+  inflating: cb_2014_06_tract_500k.dbf  
+  inflating: cb_2014_06_tract_500k.prj  
+ extracting: cb_2014_06_tract_500k.cpg  
+
+</code></pre>
+                 <br/>Check the map out.  Go to  <a href='http://mapshaper.org/'>mapshaper.org</a> and upload the cb_2014_06_tract_500k.shp shape file to see what you have.
+                 <br/><br/><img src='1.png'/>
+                 
+                 <br/><br/>Convert shape files to GeoJSON: a web-friendly, human-readable format. 
+                 <pre class="tab"><code>
+$ shp2json cb_2014_06_tract_500k.shp -o ca.json
+</code></pre>
+                 <br/>Apply a geographic projection to the json file.  Its more efficient than doing it at run-time.
+               <pre class="tab"><code>
+$ geoproject 'd3.geoConicEqualArea().parallels([34, 40.5]).rotate([120, 0]).fitSize([960, 960], d)' < ca.json > ca-albers.json
+</code></pre>  
+                 <br/>Preview the projected geometry, use d3-geo-projection’s geo2svg:
+                 <pre class="tab"><code>
+$ geo2svg -w 960 -h 960 < ca-albers.json > ca-albers.svg
+</code></pre>  
+
+                 <img src="ca-albers.svg" onerror="this.src='your.png'">
+                </div>
+            </div>
+        </div>
+    </body>
+</html>     
